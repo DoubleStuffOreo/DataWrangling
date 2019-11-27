@@ -1,0 +1,21 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Nov 27 15:54:36 2019
+
+@author: 2ecee-32
+"""
+
+import pandas as pd
+
+t1 = pd.DataFrame({'Student': ['Ice Bear', 'Panda', 'Grizzly'], 'Math': [80, 95, 79]})
+t2 = pd.DataFrame({'Student': ['Ice Bear', 'Panda', 'Grizzly'], 'Electronics': [85, 81, 83]})
+t3 = pd.DataFrame({'Student': ['Ice Bear', 'Panda', 'Grizzly'], 'GEAS': [90, 79, 93]})
+t4 = pd.DataFrame({'Student': ['Ice Bear', 'Panda', 'Grizzly'], 'ESAT': [93, 89, 88]})
+
+t1m = t1.merge(t2)
+t2m = t1m.merge(t3)
+final = t2m.merge(t4) #resulting dataframe
+
+#long format
+long = pd.melt(final, id_vars='Student', value_vars=['Math', 'Electronics', 'GEAS', 'ESAT'], var_name='Subject', value_name='Grades')
+tidy_long = long.sort_values('Student')52
