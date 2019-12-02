@@ -18,4 +18,4 @@ final = t2m.merge(t4) #resulting dataframe
 
 #long format
 long = pd.melt(final, id_vars='Student', value_vars=['Math', 'Electronics', 'GEAS', 'ESAT'], var_name='Subject', value_name='Grades')
-tidy_long = long.sort_values('Student')52
+tidy_long = long.sort_values('Student')
